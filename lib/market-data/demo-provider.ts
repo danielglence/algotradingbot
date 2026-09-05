@@ -1,0 +1,3 @@
+import {stocks} from '@/lib/data';import type {MarketDataProvider} from './types';
+export class DemoMarketDataProvider implements MarketDataProvider{async searchStocks(query:string){const q=query.toLowerCase();return stocks.filter(s=>(s.symbol+s.name).toLowerCase().includes(q))}async getQuote(symbol:string){return stocks.find(s=>s.symbol===symbol)||null}async getQuotes(symbols:string[]){return stocks.filter(s=>symbols.includes(s.symbol))}async getHistoricalData(){return Array.from({length:30},(_,i)=>({time:`Day ${i+1}`,value:100+i*1.2+Math.sin(i)*4}))}}
+export const marketData=new DemoMarketDataProvider();
