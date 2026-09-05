@@ -1,1 +1,1 @@
-import {Alerts} from '@/components/pages';export default function Page(){return <Alerts/>}
+import {FunctionalAlerts} from '@/components/functional-pages';export default function Page(){return <FunctionalAlerts/>}

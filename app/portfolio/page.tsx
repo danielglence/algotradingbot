@@ -1,1 +1,1 @@
-import {Portfolio} from '@/components/pages';export default function Page(){return <Portfolio/>}
+import {FunctionalPortfolio} from '@/components/functional-pages';export default function Page(){return <FunctionalPortfolio/>}
