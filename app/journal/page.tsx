@@ -1,1 +1,1 @@
-import {Journal} from '@/components/pages';export default function Page(){return <Journal/>}
+import TradingJournal from '@/components/journal';export default function Page(){return <TradingJournal/>}
