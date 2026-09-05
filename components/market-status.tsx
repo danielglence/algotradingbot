@@ -1,0 +1,3 @@
+'use client';
+import {useEffect,useState} from 'react';import {getIndianMarketStatus} from '@/lib/market-status';
+export function MarketStatus(){const [status,setStatus]=useState(()=>getIndianMarketStatus());useEffect(()=>{const id=setInterval(()=>setStatus(getIndianMarketStatus()),30000);return()=>clearInterval(id)},[]);return <span title={`Checked ${status.updated}. Exchange holidays require calendar-provider integration.`} className={`hidden items-center gap-2 rounded-full border px-3 py-1.5 text-xs md:flex ${status.isOpen?'border-good/20 bg-good/5 text-good':'border-line bg-panel text-muted'}`}><span className={`h-2 w-2 rounded-full ${status.isOpen?'bg-good':'bg-muted'}`}/>{status.label}</span>}

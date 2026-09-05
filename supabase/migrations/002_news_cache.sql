@@ -1,0 +1,3 @@
+create table if not exists news_cache (id uuid primary key default gen_random_uuid(),provider_id text not null unique,headline text not null,source text not null,published_at timestamptz not null,summary text,url text not null,category text not null default 'Market',related_stocks text[] not null default '{}',created_at timestamptz not null default now(),updated_at timestamptz not null default now());
+create index if not exists news_cache_published_at_idx on news_cache(published_at desc);create index if not exists news_cache_category_idx on news_cache(category);
+alter table news_cache enable row level security;create policy "public can read cached news" on news_cache for select using(true);
